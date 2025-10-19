@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoVault - Secure Your Digital Future</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#06b6d4',
+                        secondary: '#10b981',
+                        background: '#0f172a',
+                        foreground: '#f8fafc',
+                        muted: '#1e293b',
+                        'muted-foreground': '#94a3b8',
+                        card: '#1e293b',
+                        border: '#334155'
+                    },
+                    fontFamily: {
+                        'work-sans': ['Work Sans', 'sans-serif'],
+                        'open-sans': ['Open Sans', 'sans-serif']
+                    },
+                    animation: {
+                        'pulse-crypto': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(6, 182, 212, 0.3); }
+            to { box-shadow: 0 0 30px rgba(6, 182, 212, 0.6); }
+        }
+        .animate-glow {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+    </style>
+</head>
+<body class="bg-background text-foreground font-open-sans">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xl font-bold font-work-sans">CryptoVault</span>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#trading" class="text-foreground hover:text-primary transition-colors">Trading</a>
+                    <a href="#security" class="text-foreground hover:text-primary transition-colors">Security</a>
+                    <a href="about.html" class="text-foreground hover:text-primary transition-colors">About</a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="chart.html" class="bg-primary hover:bg-primary/90 text-white px-6 py-2 rounded-md transition-colors">Get Started</a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="mobile-menu" class="md:hidden hidden bg-background border-t border-border">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="#trading" class="block px-3 py-2 text-foreground hover:text-primary">Trading</a>
+                    <a href="#security" class="block px-3 py-2 text-foreground hover:text-primary">Security</a>
+                    <a href="#analytics" class="block px-3 py-2 text-foreground hover:text-primary">Analytics</a>
+                    <a href="#profil" class="block px-3 py-2 text-foreground hover:text-primary">Profile</a>
+                    <a href="#about" class="block px-3 py-2 text-foreground hover:text-primary">About</a>
+                    <div class="pt-4 pb-2 space-y-2">
+                        <a href="chart.html" class="w-full bg-primary hover:bg-primary/90 text-white px-3 py-2 rounded-md">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-muted/30 to-primary/5">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-20 w-32 h-32 border border-primary/30 rounded-full animate-pulse-crypto"></div>
+            <div class="absolute top-40 right-32 w-24 h-24 border border-secondary/30 rounded-full animate-float"></div>
+            <div class="absolute bottom-32 left-1/4 w-40 h-40 border border-primary/20 rounded-full animate-pulse-crypto"></div>
+            <div class="absolute bottom-20 right-20 w-28 h-28 border border-secondary/20 rounded-full animate-float"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-8">
+                <div class="inline-flex items-center px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium mb-6">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                    </svg>
+                    Advanced Crypto Trading Platform
+                </div>
+
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold font-work-sans mb-6">
+                    Secure Your
+                    <span class="text-primary block">Digital Future</span>
+                </h1>
+
+                <p class="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+                    Experience institutional-grade cryptocurrency trading with advanced security, real-time analytics, and seamless blockchain technology integration.
+                </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+                <a href="chart.html" class="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg rounded-md flex items-center transition-colors">
+                    Start Trading
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+                <!-- Learn More button converted to anchor link with href to about.html -->
+                <a href="learn_more.html" class="border border-primary text-primary hover:bg-primary/10 px-8 py-3 text-lg rounded-md bg-transparent transition-colors">
+                    Learn More
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="flex flex-col items-center p-6 bg-card/50 backdrop-blur-sm rounded-xl border border-border/50">
+                    <svg class="w-12 h-12 text-primary mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                    <h3 class="text-lg font-semibold font-work-sans mb-2">Bank-Grade Security</h3>
+                    <p class="text-muted-foreground text-center text-sm">Multi-layer encryption and cold storage protection</p>
+                </div>
+
+                <div class="flex flex-col items-center p-6 bg-card/50 backdrop-blur-sm rounded-xl border border-border/50">
+                    <svg class="w-12 h-12 text-secondary mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                    <h3 class="text-lg font-semibold font-work-sans mb-2">Lightning Fast</h3>
+                    <p class="text-muted-foreground text-center text-sm">Execute trades in milliseconds with our advanced engine</p>
+                </div>
+
+                <div class="flex flex-col items-center p-6 bg-card/50 backdrop-blur-sm rounded-xl border border-border/50">
+                    <svg class="w-12 h-12 text-primary mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                    </svg>
+                    <h3 class="text-lg font-semibold font-work-sans mb-2">Smart Analytics</h3>
+                    <p class="text-muted-foreground text-center text-sm">AI-powered insights and real-time market analysis</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-muted/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold font-work-sans mb-4">Trusted by Millions Worldwide</h2>
+                <p class="text-lg text-muted-foreground max-w-2xl mx-auto">Join the largest community of crypto traders and investors</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center p-6 bg-card rounded-xl border border-border hover:shadow-lg transition-shadow">
+                    <svg class="w-12 h-12 text-primary mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                    </svg>
+                    <div class="text-3xl font-bold mb-2" id="volume-stat">$2.4B</div>
+                    <div class="text-sm text-muted-foreground">24h Volume</div>
+                    <div class="flex items-center justify-center mt-2 text-secondary text-sm">
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                        +12.5%
+                    </div>
+                </div>
+
+                <div class="text-center p-6 bg-card rounded-xl border border-border hover:shadow-lg transition-shadow">
+                    <svg class="w-12 h-12 text-secondary mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+                    </svg>
+                    <div class="text-3xl font-bold mb-2" id="users-stat">150K</div>
+                    <div class="text-sm text-muted-foreground">Active Users</div>
+                    <div class="flex items-center justify-center mt-2 text-secondary text-sm">
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                        +8.2%
+                    </div>
+                </div>
+
+                <div class="text-center p-6 bg-card rounded-xl border border-border hover:shadow-lg transition-shadow">
+                    <svg class="w-12 h-12 text-primary mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                    </svg>
+                    <div class="text-3xl font-bold mb-2" id="trades-stat">5.2M</div>
+                    <div class="text-sm text-muted-foreground">Total Trades</div>
+                    <div class="flex items-center justify-center mt-2 text-secondary text-sm">
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                        +15.7%
+                    </div>
+                </div>
+
+                <div class="text-center p-6 bg-card rounded-xl border border-border hover:shadow-lg transition-shadow">
+                    <div class="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-secondary font-bold text-lg">%</span>
+                    </div>
+                    <div class="text-3xl font-bold mb-2" id="uptime-stat">99.9%</div>
+                    <div class="text-sm text-muted-foreground">Uptime</div>
+                    <div class="flex items-center justify-center mt-2 text-secondary text-sm">
+                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                        Excellent
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trading Features -->
+    <section id="trading" class="py-20 bg-background">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold font-work-sans mb-4">Professional Trading Features</h2>
+                <p class="text-lg text-muted-foreground max-w-2xl mx-auto">Everything you need to trade cryptocurrencies like a professional</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <div class="group hover:shadow-xl transition-all duration-300 border border-border/50 hover:border-primary/30 rounded-lg p-6 bg-card">
+                    <div class="w-12 h-12 rounded-lg bg-muted flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold font-work-sans mb-2">Advanced Charting</h3>
+                    <p class="text-muted-foreground">Professional trading tools with 100+ technical indicators and real-time market data.</p>
+                </div>
+
+                <div class="group hover:shadow-xl transition-all duration-300 border border-border/50 hover:border-primary/30 rounded-lg p-6 bg-card">
+                    <div class="w-12 h-12 rounded-lg bg-muted flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002 2v1a2 2 0 002 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold font-work-sans mb-2">Mobile Trading</h3>
+                    <p class="text-muted-foreground">Trade on-the-go with our award-winning mobile app available on iOS and Android.</p>
+                </div>
+
+                <div class="group hover:shadow-xl transition-all duration-300 border border-border/50 hover:border-primary/30 rounded-lg p-6 bg-card">
+                    <div class="w-12 h-12 rounded-lg bg-muted flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold font-work-sans mb-2">Instant Execution</h3>
+                    <p class="text-muted-foreground">Lightning-fast order execution with minimal slippage and competitive spreads.</p>
+                </div>
+
+                <div class="group hover:shadow-xl transition-all duration-300 border border-border/50 hover:border-primary/30 rounded-lg p-6 bg-card">
+                    <div class="w-12 h-12 rounded-lg bg-muted flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold font-work-sans mb-2">Global Markets</h3>
+                    <p class="text-muted-foreground">Access to 500+ cryptocurrencies and trading pairs from around the world.</p>
+                </div>
+
+                <div class="group hover:shadow-xl transition-all duration-300 border border-border/50 hover:border-primary/30 rounded-lg p-6 bg-card">
+                    <div class="w-12 h-12 rounded-lg bg-muted flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold font-work-sans mb-2">Secure Wallet</h3>
+                    <p class="text-muted-foreground">Multi-signature cold storage with insurance coverage up to $250M.</p>
+                </div>
+
+                <div class="group hover:shadow-xl transition-all duration-300 border border-border/50 hover:border-primary/30 rounded-lg p-6 bg-card">
+                    <div class="w-12 h-12 rounded-lg bg-muted flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold font-work-sans mb-2">AI Insights</h3>
+                    <p class="text-muted-foreground">Machine learning algorithms provide personalized trading recommendations.</p>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-md transition-colors">Explore All Features</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section id="security" class="py-20 bg-muted/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold font-work-sans mb-4">Bank-Grade Security</h2>
+                <p class="text-lg text-muted-foreground max-w-2xl mx-auto">Your assets are protected by the most advanced security measures in the industry</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold font-work-sans mb-2">Multi-Layer Protection</h3>
+                            <p class="text-muted-foreground">Advanced encryption, multi-signature wallets, and hardware security modules protect your digital assets 24/7.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold font-work-sans mb-2">Cold Storage</h3>
+                            <p class="text-muted-foreground">95% of funds are stored offline in geographically distributed, air-gapped cold storage systems.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold font-work-sans mb-2">24/7 Monitoring</h3>
+                            <p class="text-muted-foreground">Real-time threat detection and response systems monitor all transactions and account activities.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold font-work-sans mb-2">Regulatory Compliance</h3>
+                            <p class="text-muted-foreground">Fully compliant with global financial regulations and regularly audited by third-party security firms.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="p-8 bg-gradient-to-br from-primary/5 to-secondary/5 border border-primary/20 rounded-lg">
+                        <div class="text-center">
+                            <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 animate-glow">
+                                <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-2xl font-bold font-work-sans mb-4">$250M Insurance Coverage</h3>
+                            <p class="text-lg text-muted-foreground mb-6">Your digital assets are protected by comprehensive insurance coverage from leading providers.</p>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div class="p-3 bg-background/50 rounded-lg">
+                                    <div class="font-semibold">SOC 2 Type II</div>
+                                    <div class="text-muted-foreground">Certified</div>
+                                </div>
+                                <div class="p-3 bg-background/50 rounded-lg">
+                                    <div class="font-semibold">ISO 27001</div>
+                                    <div class="text-muted-foreground">Compliant</div>
+                                </div>
+                                <div class="p-3 bg-background/50 rounded-lg">
+                                    <div class="font-semibold">PCI DSS</div>
+                                    <div class="text-muted-foreground">Level 1</div>
+                                </div>
+                                <div class="p-3 bg-background/50 rounded-lg">
+                                    <div class="font-semibold">CCSS</div>
+                                    <div class="text-muted-foreground">Level 3</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-background border-t border-border py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold font-work-sans">CryptoVault</span>
+                    </div>
+                    <p class="text-muted-foreground mb-4 max-w-md">
+                        The most secure and advanced cryptocurrency trading platform. Join millions of traders worldwide.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-muted-foreground hover:text-primary transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-muted-foreground hover:text-primary transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-muted-foreground hover:text-primary transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold font-work-sans mb-4">Platform</h3>
+                    <ul class="space-y-2 text-muted-foreground">
+                        <li><a href="#" class="hover:text-primary transition-colors">Trading</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Wallet</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Analytics</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">API</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold font-work-sans mb-4">Support</h3>
+                    <ul class="space-y-2 text-muted-foreground">
+                        <li><a href="#" class="hover:text-primary transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Security</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Status</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-muted-foreground text-sm">© 2024 CryptoVault. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-muted-foreground hover:text-primary text-sm transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-muted-foreground hover:text-primary text-sm transition-colors">Terms of Service</a>
+                    <a href="#" class="text-muted-foreground hover:text-primary text-sm transition-colors">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-background/95', 'backdrop-blur-md', 'shadow-lg');
+            } else {
+                navbar.classList.remove('bg-background/95', 'backdrop-blur-md', 'shadow-lg');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Stats animation on scroll
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const statsSection = document.querySelector('#volume-stat').closest('section');
+        observer.observe(statsSection);
+
+        function animateStats() {
+            animateValue('volume-stat', 0, 2400000000, 2000, (num) => {
+                if (num >= 1000000000) return `$${(num / 1000000000).toFixed(1)}B`;
+                if (num >= 1000000) return `$${(num / 1000000).toFixed(1)}M`;
+                if (num >= 1000) return `$${(num / 1000).toFixed(0)}K`;
+                return `$${num}`;
+            });
+            
+            animateValue('users-stat', 0, 150000, 2000, (num) => {
+                if (num >= 1000) return `${(num / 1000).toFixed(0)}K`;
+                return num.toString();
+            });
+            
+            animateValue('trades-stat', 0, 5200000, 2000, (num) => {
+                if (num >= 1000000) return `${(num / 1000000).toFixed(1)}M`;
+                if (num >= 1000) return `${(num / 1000).toFixed(0)}K`;
+                return num.toString();
+            });
+            
+            animateValue('uptime-stat', 0, 99.9, 2000, (num) => `${num.toFixed(1)}%`);
+        }
+
+        function animateValue(elementId, start, end, duration, formatter) {
+            const element = document.getElementById(elementId);
+            let startTime = null;
+            
+            function step(currentTime) {
+                if (!startTime) startTime = currentTime;
+                const progress = Math.min((currentTime - startTime) / duration, 1);
+                const value = Math.floor(progress * (end - start) + start);
+                element.textContent = formatter ? formatter(value) : value;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                }
+            }
+            
+            requestAnimationFrame(step);
+        }
+    </script>
+</body>
+</html>
