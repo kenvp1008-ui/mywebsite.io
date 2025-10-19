@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crypto vault</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: '#0a192f',
+            foreground: '#e6f1ff',
+            primary: '#1e40af',
+            border: '#1e3a8a',
+            card: '#112240',
+            muted: '#233554',
+            'muted-foreground': '#94a3b8',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="flex min-h-screen flex-col bg-background text-foreground">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-40 w-full border-b border-border bg-background">
+    <div class="container mx-auto flex h-16 items-center justify-between py-4 px-4">
+      <div class="flex items-center space-x-4">
+        <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-white font-bold">
+          CT
+        </div>
+        <h1 class="text-xl font-bold text-primary">Crypto Trading Guide</h1>
+      </div>
+      <nav class="hidden space-x-4 md:flex">
+        <a class="text-sm font-medium transition-colors hover:text-primary" href="#what-is-crypto-trading">What is it?</a>
+        <a class="text-sm font-medium transition-colors hover:text-primary" href="#benefits">Benefits</a>
+        <a class="text-sm font-medium transition-colors hover:text-primary" href="#risks">Risks</a>
+        <a class="text-sm font-medium transition-colors hover:text-primary" href="#get-started">Get Started</a>
+        <a class="text-sm font-medium transition-colors hover:text-primary" href="#glossary">Glossary</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="container mx-auto flex-1 py-8 md:py-12 lg:py-16 px-4">
+    <div class="grid gap-8 lg:grid-cols-[1fr_300px]">
+      <div class="space-y-8">
+        
+        <!-- Hero -->
+        <section id="hero" class="space-y-4">
+          <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">Learn More — Crypto Trading</h2>
+          <p class="text-lg text-muted-foreground">
+            Cryptocurrency trading is one of the fastest-growing areas in the world of finance. This guide is designed
+            to help beginners and intermediate traders understand the basics, the risks, and the opportunities available
+            in the digital asset market.
+          </p>
+        </section>
+
+        <!-- What is crypto trading -->
+        <section id="what-is-crypto-trading" class="space-y-4">
+          <h3 class="text-2xl font-bold">What is Crypto Trading?</h3>
+          <p class="text-muted-foreground">
+            Crypto trading refers to the act of buying, selling, or exchanging cryptocurrencies on various online platforms.
+            It differs from traditional stock trading because crypto markets operate 24/7 and are influenced by global events,
+            investor sentiment, and rapid technological changes.
+          </p>
+          <p class="text-muted-foreground">
+            Traders use strategies such as day trading, swing trading, and long-term holding. Advanced participants often rely
+            on technical analysis, chart patterns, and automated trading bots to maximize profits.
+          </p>
+        </section>
+
+        <!-- Benefits -->
+        <section id="benefits" class="space-y-4">
+          <h3 class="text-2xl font-bold">Benefits of Crypto Trading</h3>
+          <ul class="list-disc pl-6 space-y-2 text-muted-foreground">
+            <li>High liquidity compared to many traditional assets.</li>
+            <li>24/7 market accessibility across global exchanges.</li>
+            <li>Diverse strategies from long-term investing to scalping.</li>
+            <li>Opportunities for portfolio diversification.</li>
+            <li>Potential for significant returns during bull markets.</li>
+          </ul>
+        </section>
+
+        <!-- Risks -->
+        <section id="risks" class="space-y-4">
+          <h3 class="text-2xl font-bold">Risks of Crypto Trading</h3>
+          <p class="text-muted-foreground">
+            Despite its appeal, crypto trading is not without dangers. Extreme volatility can lead to rapid losses, and
+            the lack of regulation in some regions exposes traders to scams and hacks. Emotional decision-making and
+            poor risk management are also common pitfalls.
+          </p>
+        </section>
+
+        <!-- Get Started -->
+        <section id="get-started" class="space-y-4">
+          <h3 class="text-2xl font-bold">How to Get Started</h3>
+          <ol class="list-decimal pl-6 space-y-2 text-muted-foreground">
+            <li>Choose a reliable and secure exchange platform.</li>
+            <li>Learn the basics of wallets, private keys, and blockchain security.</li>
+            <li>Start small, never invest more than you can afford to lose.</li>
+            <li>Develop a strategy (long-term hold, day trade, etc.).</li>
+            <li>Practice risk management and use stop-loss orders.</li>
+          </ol>
+        </section>
+
+        <!-- Glossary -->
+        <section id="glossary" class="space-y-4">
+          <h3 class="text-2xl font-bold">Glossary</h3>
+          <dl class="space-y-2 text-muted-foreground">
+            <dt class="font-semibold">Blockchain</dt>
+            <dd>A distributed ledger technology that records all transactions across a network.</dd>
+            <dt class="font-semibold">Altcoin</dt>
+            <dd>Any cryptocurrency other than Bitcoin.</dd>
+            <dt class="font-semibold">Liquidity</dt>
+            <dd>The ease with which an asset can be bought or sold without affecting its price.</dd>
+          </dl>
+        </section>
+
+        <!-- Back Button -->
+        <div class="mt-8">
+          <a href="homepage.html" class="px-4 py-2 bg-primary text-white rounded-lg hover:bg-blue-700 inline-block">
+             Back to Homepage
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-border bg-background py-6 text-center text-sm text-muted-foreground">
+    © 2025 Crypto Trading Guide. All rights reserved.
+  </footer>
+</body>
+</html>
